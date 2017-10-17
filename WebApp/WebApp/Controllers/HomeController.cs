@@ -26,5 +26,14 @@ namespace WebApp.Controllers
 
             return View();
         }
+
+        public ActionResult LoginUser()
+        {
+            string[] htmluser = Request.LogonUserIdentity.Name.Split('\\');
+            string userID = htmluser[1];
+
+            string message = $"Hello, {User.Identity.Name}";
+            return Content(userID);
+        }
     }
 }
